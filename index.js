@@ -75,13 +75,10 @@ const time = document.getElementById('time');
 
 import { showListSection, showAddSection, showContactSection } from "./modules/dom.js"
 
-function timeDate() {
-  setInterval(() => {
-    time.innerHTML = new Date();
-  }, 100);
-}
+import { DateTime } from './node_modules/luxon/build/es6/luxon.js';
 
-window.addEventListener('load', timeDate);
+const timeNow = DateTime.now();
+time.textContent = timeNow.toLocaleString(DateTime.DATETIME_MED);
 
 navList.addEventListener('click', () => {
     showListSection(listSection, addSection, contactSection);

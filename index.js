@@ -7,59 +7,12 @@ let bookList = JSON.parse(localStorage.getItem('booksList'));
 import {pushListItem} from "./modules/showbook.js"
 
 window.addEventListener('load', ()=>{pushListItem(bookList,output)})
-
-class Collection {
-  constructor() {
-    this.arr = JSON.parse(localStorage.getItem('booksList'));
-  }
-
-  getBooks() {
-    if (localStorage.getItem('booksList') === null) {
-      this.arr = [];
-    } else {
-      this.arr = JSON.parse(localStorage.getItem('booksList'));
-    }
-  }
-
-  UpdateLocalStorage() {
-    localStorage.setItem('booksList', JSON.stringify(this.arr));
-  }
-
-  addBooks() {
-    const bookObj = {
-      id: new Date().getTime().toString(),
-      book: bookName.value,
-      author: author.value,
-    };
-    this.arr.push(bookObj);
-    this.UpdateLocalStorage();
-    pushListItem(bookList,output)
-  }
-
-  setupArray() {
-    this.arr = JSON.parse(localStorage.getItem('booksList'));
-  }
-
-  removeBooks(id) {
-    this.arr = this.arr.filter((e) => e.id !== id);
-    this.UpdateLocalStorage();
-    pushListItem(bookList,output)
-  }
-}
-
-const collection = new Collection();
-
-window.onload = () => {
-  collection.getBooks();
-};
-
+import {Collection} from './modules/addRemoveBtn.js'
+const collection = new Collection(bookList);
 const addBtn = document.querySelector('.addBtn');
 
-// event listener to trigger add class
-
 addBtn.addEventListener('click', () => {
-  collection.getBooks();
-  collection.addBooks();
+  collection.addBooks(bookName,author)
   form.reset();
 });
 

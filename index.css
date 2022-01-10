@@ -128,10 +128,10 @@
   }
   
   .footer-container {
-    width: 100%;
+    width: 200px;
     height: 40px;
-    position: absolute;
-    bottom: 10px;
+    position: relative;
+    bottom: 0;
     display: flex;
     margin: auto auto;
     border: 3px solid black;

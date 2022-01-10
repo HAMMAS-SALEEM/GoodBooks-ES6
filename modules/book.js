@@ -44,5 +44,3 @@ class Collection {
     pushListItem();
   }
 }
-
-const collection = new Collection();

@@ -1,6 +1,6 @@
- export function pushListItem() {
+export function pushListItem(bookList,output) {
   let bookHtml = '';
-  const booksArray = JSON.parse(localStorage.getItem('booksList'));
+  const booksArray = bookList;
   if (booksArray !== null) {
     booksArray.forEach((item) => {
       bookHtml += `<li class="list_item">
@@ -8,4 +8,4 @@
     });
     output.innerHTML = bookHtml;
   }
-}
+} 

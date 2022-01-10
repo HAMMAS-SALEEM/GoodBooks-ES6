@@ -5,20 +5,13 @@ const form = document.querySelector('#form');
 let bookList = JSON.parse(localStorage.getItem('booksList'));
 
 import {pushListItem} from "./modules/showbook.js"
-const pushLiItem = ()=>{
-    pushListItem(bookList,output)
-}
 
-window.addEventListener('load', pushLiItem)
-
-// import { Collection } from "./modules/book.js"
+window.addEventListener('load', ()=>{pushListItem(bookList,output)})
 
 class Collection {
   constructor() {
     this.arr = JSON.parse(localStorage.getItem('booksList'));
   }
-
-  // class to check array items in the local storage
 
   getBooks() {
     if (localStorage.getItem('booksList') === null) {
@@ -28,13 +21,9 @@ class Collection {
     }
   }
 
-  // class to update array in the local storage
-
   UpdateLocalStorage() {
     localStorage.setItem('booksList', JSON.stringify(this.arr));
   }
-
-  // class to push items into array and display them
 
   addBooks() {
     const bookObj = {
@@ -44,29 +33,24 @@ class Collection {
     };
     this.arr.push(bookObj);
     this.UpdateLocalStorage();
-    pushLiItem();
+    pushListItem(bookList,output)
   }
 
   setupArray() {
     this.arr = JSON.parse(localStorage.getItem('booksList'));
   }
 
-  // class to remove items from array and display them
-
   removeBooks(id) {
     this.arr = this.arr.filter((e) => e.id !== id);
     this.UpdateLocalStorage();
-    pushLiItem();
+    pushListItem(bookList,output)
   }
 }
 
 const collection = new Collection();
 
-// window onload function to get array items from the local storage and display them
-
 window.onload = () => {
   collection.getBooks();
-  // pushListItem();
 };
 
 const addBtn = document.querySelector('.addBtn');
@@ -91,18 +75,6 @@ const time = document.getElementById('time');
 
 import { showListSection, showAddSection, showContactSection } from "./modules/dom.js"
 
-const showList = () => {
-  showListSection(listSection, addSection, contactSection)
-}
-
-const showAdd = () => {
-  showAddSection(listSection, addSection, contactSection)
-}
-
-const showContact = () => {
-  showContactSection(listSection, addSection, contactSection)
-}
-
 function timeDate() {
   setInterval(() => {
     time.innerHTML = new Date();
@@ -112,10 +84,10 @@ function timeDate() {
 window.addEventListener('load', timeDate);
 
 navList.addEventListener('click', () => {
-  showList();
-  pushLiItem();
+    showListSection(listSection, addSection, contactSection);
+    pushListItem(bookList,output)
 });
 
-navAdd.addEventListener('click', showAdd);
+navAdd.addEventListener('click', ()=>{showAddSection(listSection, addSection, contactSection)});
 
-navContact.addEventListener('click', showContact);
+navContact.addEventListener('click', ()=>{showContactSection(listSection, addSection, contactSection)});

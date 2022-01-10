@@ -17,7 +17,7 @@ class Collection {
     if (localStorage.getItem('booksList') === null) {
       this.arr = [];
     } else {
-      this.arr = bookList;
+      this.arr = JSON.parse(localStorage.getItem('booksList'));
     }
   }
 
@@ -80,11 +80,27 @@ import { DateTime } from './node_modules/luxon/build/es6/luxon.js';
 const timeNow = DateTime.now();
 time.textContent = timeNow.toLocaleString(DateTime.DATETIME_MED);
 
+const showList = ()=>{
+  showListSection(listSection, addSection, contactSection);
+}
+
+const showAdd = ()=>{
+  showAddSection(listSection, addSection, contactSection)
+}
+
+const showContact = ()=>{
+  showContactSection(listSection, addSection, contactSection)
+}
+
 navList.addEventListener('click', () => {
-    showListSection(listSection, addSection, contactSection);
+    showList();
     pushListItem(bookList,output)
 });
 
-navAdd.addEventListener('click', ()=>{showAddSection(listSection, addSection, contactSection)});
+navAdd.addEventListener('click', ()=>{
+  showAdd()
+});
 
-navContact.addEventListener('click', ()=>{showContactSection(listSection, addSection, contactSection)});
+navContact.addEventListener('click', ()=>{
+  showContact();
+});

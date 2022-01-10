@@ -1,6 +1,6 @@
 export class Collection {
-    constructor(dataStore) {
-      this.arr = dataStore;
+    constructor() {
+      this.arr = []
     }
   
     getBooks(dataStore) {

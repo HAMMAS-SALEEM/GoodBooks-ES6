@@ -6,13 +6,18 @@ let bookList = JSON.parse(localStorage.getItem('booksList'));
 
 import {pushListItem} from "./modules/showbook.js"
 
-window.addEventListener('load', ()=>{pushListItem(bookList,output)})
+window.onresize = pushListItem(bookList,output)
+
+
 import {Collection} from './modules/addRemoveBtn.js'
 const collection = new Collection(bookList);
 const addBtn = document.querySelector('.addBtn');
 
 addBtn.addEventListener('click', () => {
+
   collection.addBooks(bookName,author)
+  collection.getBooks(bookList)
+  pushListItem(bookList,output);
   form.reset();
 });
 
@@ -33,27 +38,14 @@ import { DateTime } from './node_modules/luxon/build/es6/luxon.js';
 const timeNow = DateTime.now();
 time.textContent = timeNow.toLocaleString(DateTime.DATETIME_MED);
 
-const showList = ()=>{
-  showListSection(listSection, addSection, contactSection);
-}
-
-const showAdd = ()=>{
-  showAddSection(listSection, addSection, contactSection)
-}
-
-const showContact = ()=>{
-  showContactSection(listSection, addSection, contactSection)
-}
-
 navList.addEventListener('click', () => {
-    showList();
-    pushListItem(bookList,output)
+  showListSection(listSection, addSection, contactSection);
 });
 
 navAdd.addEventListener('click', ()=>{
-  showAdd()
+  showAddSection(listSection, addSection, contactSection)
 });
 
 navContact.addEventListener('click', ()=>{
-  showContact();
+  showContactSection(listSection, addSection, contactSection)
 });

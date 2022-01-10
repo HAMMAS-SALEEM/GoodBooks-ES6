@@ -3,20 +3,19 @@ const author = document.getElementById('author');
 const output = document.querySelector('.list-elements');
 const form = document.querySelector('#form');
 let bookList = JSON.parse(localStorage.getItem('booksList'));
-
+const collection = new Collection(bookList);
 import {pushListItem} from "./modules/showbook.js"
 
-window.onresize = pushListItem(bookList,output)
+window.onresize =  collection.getBooks(bookList)
 
 
 import {Collection} from './modules/addRemoveBtn.js'
-const collection = new Collection(bookList);
+
 const addBtn = document.querySelector('.addBtn');
 
 addBtn.addEventListener('click', () => {
-
-  collection.addBooks(bookName,author)
   collection.getBooks(bookList)
+  collection.addBooks(bookName,author)
   pushListItem(bookList,output);
   form.reset();
 });
@@ -40,6 +39,7 @@ time.textContent = timeNow.toLocaleString(DateTime.DATETIME_MED);
 
 navList.addEventListener('click', () => {
   showListSection(listSection, addSection, contactSection);
+  pushListItem(bookList,output)
 });
 
 navAdd.addEventListener('click', ()=>{

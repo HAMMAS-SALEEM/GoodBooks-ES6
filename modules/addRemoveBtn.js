@@ -6,6 +6,7 @@ export class Collection {
     getBooks(dataStore) {
       if (dataStore === null) {
         this.arr = [];
+        localStorage.setItem('booksList', JSON.stringify(this.arr))
       } else {
         this.arr = dataStore;
       }

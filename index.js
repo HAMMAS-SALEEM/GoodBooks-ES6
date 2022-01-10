@@ -11,6 +11,8 @@ const pushLiItem = ()=>{
 
 window.addEventListener('load', pushLiItem)
 
+// import { Collection } from "./modules/book.js"
+
 class Collection {
   constructor() {
     this.arr = JSON.parse(localStorage.getItem('booksList'));
@@ -87,6 +89,20 @@ const addSection = document.getElementById('add-book');
 const contactSection = document.getElementById('contact');
 const time = document.getElementById('time');
 
+import { showListSection, showAddSection, showContactSection } from "./modules/dom.js"
+
+const showList = () => {
+  showListSection(listSection, addSection, contactSection)
+}
+
+const showAdd = () => {
+  showAddSection(listSection, addSection, contactSection)
+}
+
+const showContact = () => {
+  showContactSection(listSection, addSection, contactSection)
+}
+
 function timeDate() {
   setInterval(() => {
     time.innerHTML = new Date();
@@ -96,20 +112,10 @@ function timeDate() {
 window.addEventListener('load', timeDate);
 
 navList.addEventListener('click', () => {
-  listSection.style.display = 'block';
-  addSection.style.display = 'none';
-  contactSection.style.display = 'none';
+  showList();
   pushLiItem();
 });
 
-navAdd.addEventListener('click', () => {
-  listSection.style.display = 'none';
-  addSection.style.display = 'block';
-  contactSection.style.display = 'none';
-});
+navAdd.addEventListener('click', showAdd);
 
-navContact.addEventListener('click', () => {
-  listSection.style.display = 'none';
-  addSection.style.display = 'none';
-  contactSection.style.display = 'flex';
-});
+navContact.addEventListener('click', showContact);

@@ -1,4 +1,4 @@
-class Collection {
+export class Collection {
   constructor() {
     this.arr = JSON.parse(localStorage.getItem('booksList'));
   }
@@ -9,7 +9,7 @@ class Collection {
     if (localStorage.getItem('booksList') === null) {
       this.arr = [];
     } else {
-      this.arr = JSON.parse(localStorage.getItem('booksList'));
+      this.arr = bookList;
     }
   }
 
@@ -29,7 +29,7 @@ class Collection {
     };
     this.arr.push(bookObj);
     this.UpdateLocalStorage();
-    pushListItem();
+    pushLiItem();
   }
 
   setupArray() {
@@ -41,6 +41,6 @@ class Collection {
   removeBooks(id) {
     this.arr = this.arr.filter((e) => e.id !== id);
     this.UpdateLocalStorage();
-    pushListItem();
+    pushLiItem();
   }
 }

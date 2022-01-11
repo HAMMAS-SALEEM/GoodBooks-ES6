@@ -3,15 +3,6 @@ export class Collection {
       this.arr = bList
     }
   
-    // getBooks(dataStore) {
-    //   if (dataStore === null) {
-    //     this.arr = dataStore;
-    //     localStorage.setItem('booksList', JSON.stringify(this.arr))
-    //   } else {
-    //     this.arr = dataStore;
-    //   }
-    // }
-  
     UpdateLocalStorage() {
       localStorage.setItem('booksList', JSON.stringify(this.arr));
     }

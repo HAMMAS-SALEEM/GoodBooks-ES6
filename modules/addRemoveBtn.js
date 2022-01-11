@@ -1,16 +1,16 @@
 export class Collection {
-    constructor() {
-      this.arr = []
+    constructor(bList) {
+      this.arr = bList
     }
   
-    getBooks(dataStore) {
-      if (dataStore === null) {
-        this.arr = [];
-        localStorage.setItem('booksList', JSON.stringify(this.arr))
-      } else {
-        this.arr = dataStore;
-      }
-    }
+    // getBooks(dataStore) {
+    //   if (dataStore === null) {
+    //     this.arr = dataStore;
+    //     localStorage.setItem('booksList', JSON.stringify(this.arr))
+    //   } else {
+    //     this.arr = dataStore;
+    //   }
+    // }
   
     UpdateLocalStorage() {
       localStorage.setItem('booksList', JSON.stringify(this.arr));
@@ -22,7 +22,12 @@ export class Collection {
         book: bookName.value,
         author: author.value,
       };
-      this.arr.push(bookObj);
+      if(this.arr==null || this.arr.length==0) {
+        this.arr = [];
+        this.arr.push(bookObj);
+      } else {
+        this.arr.push(bookObj);
+      }
       this.UpdateLocalStorage();
     }
   

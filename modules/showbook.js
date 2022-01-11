@@ -5,9 +5,9 @@ export default function pushListItem(bookList, output) {
     booksArray.forEach((item) => {
       bookHtml += `<li class="list_item">
       <p class="book-name">"${item.book}" by ${item.author}</p><br><button class ="remButton" id=${item.id} type="button">Remove</button></li>`;
-    })
+    });
   } else {
-    bookHtml = '<li>No Book Avaiable</li>'
+    bookHtml = '<li>No Book Avaiable</li>';
   }
   output.innerHTML = bookHtml;
 }

@@ -3,9 +3,11 @@
 # AWESOME BOOKS
 > This website GoodBooks provides users a convenient way to keep track of their books or reading lists. Users can add and remove books from the list of books they curate on the website.
 
+
 ![App Screenshot](./images/add_page.GIF)
 ![App Screenshot](./images/books_list.GIF)
 ![App Screenshot](./images/contact_page.GIF)
+
 
 ## Built With
 
@@ -64,3 +66,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 This project is [MIT](./MIT.md) licensed.
+

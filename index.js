@@ -1,7 +1,9 @@
-const bookName = document.getElementById('name');
+let book = 'name'
+const bookName = document.getElementById(book);
 const author = document.getElementById('author');
 const output = document.querySelector('.list-elements');
 const form = document.querySelector('#form');
+const removeBtn = document.querySelector('.removeButton')
 // let bookList = JSON.parse(localStorage.getItem('booksList'));
 // const collection = new Collection(bookList);
 import {pushListItem} from "./modules/showbook.js"
@@ -17,6 +19,14 @@ addBtn.addEventListener('click', () => {
   // pushListItem(bList,output);
   form.reset();
 });
+
+let btns = document.querySelectorAll('.remButton');
+// for (let i = 0; i < btns.length; i++) {
+// btns[i].addEventListener("click", ()=> {
+//   console.log(btns[i].getAttribute('id'))
+// });
+// }
+console.log(btns)
 
 // NAVIGATION variables
 

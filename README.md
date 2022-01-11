@@ -1,10 +1,11 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # AWESOME BOOKS
-
 > This website GoodBooks provides users a convenient way to keep track of their books or reading lists. Users can add and remove books from the list of books they curate on the website.
 
-![App Screenshot]()
+![App Screenshot](./images/add_page.GIF)
+![App Screenshot](./images/books_list.GIF)
+![App Screenshot](./images/contact_page.GIF)
 
 ## Built With
 
@@ -12,6 +13,22 @@
 - CSS
 - JavaScript
 
+
+## Clone and review it
+
+Run the following commands to clone and run it.
+
+### To clone the repository
+
+  `git clone git@github.com:HAMMAS-SALEEM/GoodBooks-ES6.git`
+
+### To enter Directory
+
+`cd GoodBooks-ES6`
+
+### To run 
+
+`code .`
 
 ## Authors
 
@@ -33,6 +50,17 @@
 - Twitter: [Benjamin Semah](https://twitter.com/BenjaminSemah)
 - LinkedIn: [Benjamin Semah](https://www.linkedin.com/in/benjaminsemah/)
 
-## Show your support
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+Feel free to check the [issues page](../../issues/).
 
-Give a ⭐ if you like this project!
+## Show your support
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+This project is [MIT](./MIT.md) licensed.
